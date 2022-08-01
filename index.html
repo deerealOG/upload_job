@@ -5,6 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EngineersHub</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".down").click(function (e) {
+          $(".profileDropdown").slideToggle(".show");
+          e.stopPropagation();
+        });
+
+        $(document).on("click", function (e) {
+          if ($(e.target).closest(".profileDropdown").length === 0) {
+            $(".profileDropdown").hide();
+            e.stopPropagation();
+          }
+        });
+        $("#title").click(function (e) {
+          $(".side-navcont").slideToggle(".show");
+          e.stopPropagation();
+        });
+
+        $(document).on("click", function (e) {
+          if ($(e.target).closest(".side-navcont").length === 0) {
+            $(".side-navcont").hide();
+            e.stopPropagation();
+          }
+        });
+      });
+    </script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,13 +59,9 @@
   </head>
   <body>
     <nav id="navbar">
-      <span id="brandbox"
-        ><span id="logo">
-          <img src="images/Dark Mode_1.png" alt="brand logo" />
-        </span>
-        <span id="brandname">Engineers <span>Hub</span></span>
+      <span id="logo">
+        <img src="images/logo.svg" alt="brand logo" />
       </span>
-      <span id="navcta"> </span>
       <span id="desktop">
         <menu>
           <ul>
@@ -47,50 +71,66 @@
           </ul>
         </menu>
       </span>
+      <input id="toggle" type="checkbox"></input>
+
+<label for="toggle" class="hamburger">
+<div class="top-bun"></div>
+<div class="meat"></div>
+<div class="bottom-bun"></div>
+</label>
+
+<div class="nav">
+<div class="nav-wrapper">
+<nav>
+  <a href="#">Hire Engineer</a><br>
+  <a href="#">Find Job</a><br>
+  <a href="#">Post a Job</a><br>
+  <a href="#">My Profile</a><br>
+  <a href="#"><span class="iconify" data-icon="bx:power-off"></span>Log out</a>
+</nav>
+</div>
+</div>
       <span id="userdetails">
         <span
           class="iconify notification"
           data-icon="clarity:notification-outline-badged"
-          style="color: white; font-size: 25.15px"
+          style="color: white; font-size: 24px"
         ></span>
-        <span id="username">
-          <p id="username">Divine</p>
+        <span id="username"> Divine</span>
+        <span id="avat">
+          <span id="avatar">
+            <img src="images/Frame 36709.png" alt="user avatar" />
+          </span>
+          <span
+            class="iconify down"
+            data-icon="bi:caret-down-fill"
+            style="font-size: 26px"
+          ></span>
         </span>
-
-        <span id="avatar">
-          <img src="images/Frame 36709.png" alt="user avatar" />
-        </span>
-        <span
-          class="iconify down"
-          data-icon="bi:caret-down-fill"
-          style="font-size: 20px"
-        ></span>
-
-        <span
-          class="iconify"
-          data-icon="icon-park-outline:hamburger-button"
-          style="font-size: 30px"
-          id="hamburger"
-        ></span>
       </span>
     </nav>
-    <aside>
-      <nav id="sideNav">
-        <div id="bigContainer">
-          <span id="about">About Us</span>
-          <span id="expe">Posts</span>
-          <span id="skill">Job Upload</span>
-          <span id="cert">Contact</span>
-        </div>
-      </nav>
-    </aside>
+    <div id="dropDownCont">
+      <ul class="profileDropdown">
+        <li><a href="">My Profile</a></li>
+        <li><a href="">My Profile</a></li>
+        <li><a href="">Log out</a></li>
+      </ul>
+    </div>
     <main>
       <div id="title">
         Job upload
+        <div id="sideNavCont">
+          <ul class="side-navcont">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Posts</a></li>
+            <li style="background: #f8c097"><a href="">Job Upload</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
         <span
-          class="iconify"
+          class="iconify dropdown"
           data-icon="bi:caret-down-fill"
-          style="font-size: 20px"
+          style="font-size: 30px"
         ></span>
       </div>
       <div id="name">Upload Job</div>
@@ -119,7 +159,7 @@
       </form>
       <div id="uploadedJobs">Uploaded Jobs</div>
       <div id="jobsContainer">
-        <span id="catOne">
+       
           <span id="card">
             <span class="buttons">
               <span
@@ -189,7 +229,7 @@
           </span>
         </span>
 
-        <span id="catOne">
+       
           <span id="card">
             <span class="buttons">
               <span
@@ -259,7 +299,7 @@
           </span>
         </span>
 
-        <span id="catOne">
+       
           <span id="card">
             <span class="buttons">
               <span
