@@ -308,12 +308,13 @@ main {
 }
 #container {
   position: relative;
-  top: 200px;
+  top: 160px;
   display: flex;
   flex-direction: column;
   gap: 50px;
   padding: 0px 2%;
 }
+
 #container .title {
   display: flex;
   flex-direction: column;
@@ -324,6 +325,80 @@ main {
   font-size: 1rem;
   line-height: 150%;
   color: #262262;
+  position: relative;
+  top: 20px;
+}
+#jobtitle {
+  position: absolute;
+  left: 0;
+}
+#jobtitle select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+  background: rgba(38, 34, 98, 0.1);
+  border-radius: 10px;
+  border: transparent;
+  height: 46px;
+  width: 100%;
+  position: relative;
+  top: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 150%;
+  color: rgba(38, 34, 98, 0.6);
+}
+#jobtitle select:focus {
+  outline: solid 2px #f37821;
+}
+#jobtitle i {
+  position: absolute;
+  left: 90%;
+}
+#location {
+  position: absolute;
+  left: 0;
+}
+#location select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+  background: rgba(38, 34, 98, 0.1);
+  border-radius: 10px;
+  border: transparent;
+  height: 46px;
+  width: 100%;
+  position: relative;
+  top: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 150%;
+  color: rgba(38, 34, 98, 0.6);
+}
+#location select:focus {
+  outline: solid 2px #f37821;
+}
+#location i {
+  position: absolute;
+  left: 90%;
 }
 #container .title input {
   display: flex;
@@ -348,6 +423,16 @@ main {
   line-height: 150%;
   color: rgba(38, 34, 98, 0.6);
 }
+#location {
+  position: absolute;
+  top: 46px;
+  right: 10%;
+}
+#jobtitle {
+  position: absolute;
+  top: 46px;
+  right: 10%;
+}
 #container button {
   display: flex;
   flex-direction: row;
@@ -361,7 +446,7 @@ main {
   border-radius: 10px;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 150%;
   color: #ffffff;
@@ -376,6 +461,7 @@ main {
   color: #f37821;
   position: relative;
   top: 260px;
+  left: 2vw;
 }
 #jobsContainer {
   display: flex;
@@ -387,6 +473,7 @@ main {
   position: relative;
   top: 280px;
   width: 600%;
+  left: 2vw;
 }
 
 #card {
