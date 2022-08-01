@@ -313,6 +313,8 @@ main {
   flex-direction: column;
   gap: 50px;
   padding: 0px 2%;
+
+  height: fit-content;
 }
 
 #container .title {
@@ -550,7 +552,7 @@ main {
   border-radius: 5.05557px;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 150%;
   color: #ffffff;
@@ -565,7 +567,7 @@ main {
   border-radius: 5.05557px;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 150%;
   color: #ffffff;
@@ -649,16 +651,10 @@ main {
   #name {
     top: 180px;
   }
-  #container {
-    top: 200px;
-  }
+
   #uploadedJobs {
   }
-  #jobsContainer {
-    width: fit-content;
-    flex-direction: column;
-    gap: 20px;
-  }
+
   #catOne {
     gap: 20px;
     flex-direction: column;
