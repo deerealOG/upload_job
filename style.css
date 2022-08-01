@@ -326,11 +326,12 @@ main {
   line-height: 150%;
   color: #262262;
   position: relative;
-  top: 20px;
+  top: 50px;
 }
 #jobtitle {
   position: absolute;
   left: 0;
+  top: 50px;
 }
 #jobtitle select {
   display: flex;
@@ -428,9 +429,9 @@ main {
   top: 46px;
   right: 10%;
 }
-#jobtitle {
+#job {
   position: absolute;
-  top: 46px;
+  top: 50px;
   right: 10%;
 }
 #container button {
@@ -451,6 +452,8 @@ main {
   line-height: 150%;
   color: #ffffff;
   border: transparent;
+  position: relative;
+  top: 40px;
 }
 #uploadedJobs {
   font-family: "Poppins";
