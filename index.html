@@ -11,26 +11,57 @@
       $(document).ready(function () {
         $(".down").click(function (e) {
           $(".profileDropdown").slideToggle(".show");
+          $(this).toggleClass('rotate');
           e.stopPropagation();
         });
 
         $(document).on("click", function (e) {
           if ($(e.target).closest(".profileDropdown").length === 0) {
             $(".profileDropdown").hide();
+            $('.down').removeClass('rotate');
             e.stopPropagation();
           }
         });
         $("#title").click(function (e) {
           $(".side-navcont").slideToggle(".show");
+          $('.dropdown').toggleClass('rotate');
           e.stopPropagation();
         });
 
         $(document).on("click", function (e) {
           if ($(e.target).closest(".side-navcont").length === 0) {
             $(".side-navcont").hide();
+            $('.dropdown').removeClass('rotate');
             e.stopPropagation();
           }
         });
+
+        $('.pick-one').click(function (e) {
+          $('.select-one').toggleClass('rotate-fast');
+          e.stopPropagation();
+        });
+
+        $(document).on("click", function (e) {
+          if ($(e.target).closest(".pick-one").length === 0) {
+            $(".pick-one").removeClass('rotate-fast');
+            e.stopPropagation();
+          }
+        });
+
+        $('.pick-two').click(function (e) {
+          $('.select-two').toggleClass('rotate-fast');
+          e.stopPropagation();
+        });
+
+        $(document).on("click", function (e) {
+          if ($(e.target).closest(".pick-two").length === 0) {
+            $(".pick-two").removeClass('rotate-fast');
+            e.stopPropagation();
+          }
+        });
+        
+
+        
       });
     </script>
     <link
@@ -57,6 +88,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/themes/splide-default.min.css">
   </head>
   <body>
     <nav id="navbar">
@@ -105,7 +137,7 @@
           <span
             class="iconify down"
             data-icon="bi:caret-down-fill"
-            style="font-size: 26px"
+            style="font-size: 25px; color: #fff;"
           ></span>
         </span>
       </span>
@@ -131,253 +163,197 @@
         <span
           class="iconify dropdown"
           data-icon="bi:caret-down-fill"
-          style="font-size: 30px"
+          style="font-size: 25px"
         ></span>
       </div>
       <div id="name">Upload Job</div>
       <form id="container">
-        <span class="title" id="jobtitle">
-          <label for="jobtitle">Job Title</label>
-          <select name="jobtitle" id="jobtitle" >
-            <option value="port-harcourt">Welder</option>
-            <option value="port-harcourt">Electrician</option>
-            <option value="port-harcourt">Mechanic</option>
-          </select><i id= "job" class="fa-solid fa-sort-down"></i>
-          
-        </span>
-        <span class="title" id="location">
-          <label for="location">Location</label>
-          <select name="location" id="location" >
-            <option value="port-harcourt">Port harcourt</option>
-            <option value="port-harcourt">Lagos</option>
-            <option value="port-harcourt">Abuja</option>
-          </select><i id= "location" class="fa-solid fa-sort-down"></i>
-          
-        </span>
+        
+            <span class="title" id="jobtitle">
+            <label for="jobtitle">Job Title</label>
+            <select name="jobtitle" id="jobtitle" class="pick-one">
+              <option value="port-harcourt">Welder</option>
+              <option value="port-harcourt">Electrician</option>
+              <option value="port-harcourt">Mechanic</option>
+            </select><i id= "job" class="fa-solid fa-sort-down select-one"></i>
+            
+          </span>
+          <span class="title" id="location">
+            <label for="location">Location</label>
+            <select name="location" id="location"class="pick-two">
+              <option value="port-harcourt">Port harcourt</option>
+              <option value="port-harcourt">Lagos</option>
+              <option value="port-harcourt">Abuja</option>
+            </select><i id= "location" class="fa-solid fa-sort-down select-two"></i>
+            
+          </span>
+      </div>
 
-        <span class="title">
-          <label for="qualification">Qualifications</label>
-          <input type="text" placeholder="Msc,Bsc,Coren" />
-        </span>
+     
+          <span class="title">
+            <label for="qualification">Qualifications</label>
+            <input type="text" placeholder="Msc,Bsc,Coren" />
+          </span>
 
-        <span class="title">
-          <label for="salary">Salary range</label>
-          <input type="text" placeholder="N150,000-N200,200" />
-        </span>
+          <span class="title">
+            <label for="salary">Salary range</label>
+            <input type="text" placeholder="N150,000-N200,200" />
+          </span>
+       
+        
+
+        
 
         <button>Upload</button>
       </form>
       <div id="uploadedJobs">Uploaded Jobs</div>
-      <div id="jobsContainer">
-       
-          <span id="card">
-            <span class="buttons">
-              <span
-                class="iconify"
-                data-icon="teenyicons:edit-1-outline"
-                style="color: #262262; font-size: 20px"
-              ></span>
-              <span
-                class="iconify"
-                data-icon="fluent:delete-16-regular"
-                style="color: #f37821; font-size: 20px"
-              ></span>
-            </span>
-
-            <span class="info">
-              <p class="title">IT Training – Centre Manager</p>
-              <p class="name">CDDtech Academy</p>
-              <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
-              <p class="function">Job Function: Engineering & Technology</p>
-            </span>
-
-            <span id="save">
-              <button class="apply">Apply</button>
-              <button class="save">
-                <span
-                  class="iconify"
-                  data-icon="bi:bookmark-check"
-                  style="font-size: 16px"
-                ></span>
-                Save
-              </button>
-            </span>
-          </span>
-
-          <span id="card">
-            <span class="buttons">
-              <span
-                class="iconify"
-                data-icon="teenyicons:edit-1-outline"
-                style="color: #262262; font-size: 20px"
-              ></span>
-              <span
-                class="iconify"
-                data-icon="fluent:delete-16-regular"
-                style="color: #f37821; font-size: 20px"
-              ></span>
-            </span>
-
-            <span class="info">
-              <p class="title">IT Training – Centre Manager</p>
-              <p class="name">CDDtech Academy</p>
-              <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
-              <p class="function">Job Function: Engineering & Technology</p>
-            </span>
-
-            <span id="save">
-              <button class="apply">Apply</button>
-              <button class="save">
-                <span
-                  class="iconify"
-                  data-icon="bi:bookmark-check"
-                  style="font-size: 16px"
-                ></span>
-                Save
-              </button>
-            </span>
-          </span>
-        </span>
-
-       
-          <span id="card">
-            <span class="buttons">
-              <span
-                class="iconify"
-                data-icon="teenyicons:edit-1-outline"
-                style="color: #262262; font-size: 20px"
-              ></span>
-              <span
-                class="iconify"
-                data-icon="fluent:delete-16-regular"
-                style="color: #f37821; font-size: 20px"
-              ></span>
-            </span>
-
-            <span class="info">
-              <p class="title">IT Training – Centre Manager</p>
-              <p class="name">CDDtech Academy</p>
-              <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
-              <p class="function">Job Function: Engineering & Technology</p>
-            </span>
-
-            <span id="save">
-              <button class="apply">Apply</button>
-              <button class="save">
-                <span
-                  class="iconify"
-                  data-icon="bi:bookmark-check"
-                  style="font-size: 16px"
-                ></span>
-                Save
-              </button>
-            </span>
-          </span>
-
-          <span id="card">
-            <span class="buttons">
-              <span
-                class="iconify"
-                data-icon="teenyicons:edit-1-outline"
-                style="color: #262262; font-size: 20px"
-              ></span>
-              <span
-                class="iconify"
-                data-icon="fluent:delete-16-regular"
-                style="color: #f37821; font-size: 20px"
-              ></span>
-            </span>
-
-            <span class="info">
-              <p class="title">IT Training – Centre Manager</p>
-              <p class="name">CDDtech Academy</p>
-              <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
-              <p class="function">Job Function: Engineering & Technology</p>
-            </span>
-
-            <span id="save">
-              <button class="apply">Apply</button>
-              <button class="save">
-                <span
-                  class="iconify"
-                  data-icon="bi:bookmark-check"
-                  style="font-size: 16px"
-                ></span>
-                Save
-              </button>
-            </span>
-          </span>
-        </span>
-
-       
-          <span id="card">
-            <span class="buttons">
-              <span
-                class="iconify"
-                data-icon="teenyicons:edit-1-outline"
-                style="color: #262262; font-size: 20px"
-              ></span>
-              <span
-                class="iconify"
-                data-icon="fluent:delete-16-regular"
-                style="color: #f37821; font-size: 20px"
-              ></span>
-            </span>
-
-            <span class="info">
-              <p class="title">IT Training – Centre Manager</p>
-              <p class="name">CDDtech Academy</p>
-              <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
-              <p class="function">Job Function: Engineering & Technology</p>
-            </span>
-
-            <span id="save">
-              <button class="apply">Apply</button>
-              <button class="save">
-                <span
-                  class="iconify"
-                  data-icon="bi:bookmark-check"
-                  style="font-size: 16px"
-                ></span>
-                Save
-              </button>
-            </span>
-          </span>
-
-          <span id="card">
-            <span class="buttons">
-              <span
-                class="iconify"
-                data-icon="teenyicons:edit-1-outline"
-                style="color: #262262; font-size: 20px"
-              ></span>
-              <span
-                class="iconify"
-                data-icon="fluent:delete-16-regular"
-                style="color: #f37821; font-size: 20px"
-              ></span>
-            </span>
-
-            <span class="info">
-              <p class="title">IT Training – Centre Manager</p>
-              <p class="name">CDDtech Academy</p>
-              <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
-              <p class="function">Job Function: Engineering & Technology</p>
-            </span>
-
-            <span id="save">
-              <button class="apply">Apply</button>
-              <button class="save">
-                <span
-                  class="iconify"
-                  data-icon="bi:bookmark-check"
-                  style="font-size: 16px"
-                ></span>
-                Save
-              </button>
-            </span>
-          </span>
-        </span>
+      <div class="splide jobsContainer">
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <span class="buttons">
+                  <span
+                    class="iconify"
+                    data-icon="teenyicons:edit-1-outline"
+                    style="color: #262262; font-size: 20px"
+                  ></span>
+                  <span
+                    class="iconify"
+                    data-icon="fluent:delete-16-regular"
+                    style="color: #f37821; font-size: 20px"
+                  ></span>
+                </span>
+            
+                <span class="info">
+                  <p class="title">IT Training – Centre Manager</p>
+                  <p class="name">CDDtech Academy</p>
+                  <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
+                  <p class="function">Job Function: Engineering & Technology</p>
+                </span>
+            
+                <span id="save">
+                  <button class="apply">Apply</button>
+                  <button class="save">
+                    <span
+                      class="iconify"
+                      data-icon="bi:bookmark-check"
+                      style="font-size: 16px"
+                    ></span>
+                    Save
+                  </button>
+                </span>
+              </li>
+              <li class="splide__slide">
+                <span class="buttons">
+                  <span
+                    class="iconify"
+                    data-icon="teenyicons:edit-1-outline"
+                    style="color: #262262; font-size: 20px"
+                  ></span>
+                  <span
+                    class="iconify"
+                    data-icon="fluent:delete-16-regular"
+                    style="color: #f37821; font-size: 20px"
+                  ></span>
+                </span>
+            
+                <span class="info">
+                  <p class="title">IT Training – Centre Manager</p>
+                  <p class="name">CDDtech Academy</p>
+                  <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
+                  <p class="function">Job Function: Engineering & Technology</p>
+                </span>
+            
+                <span id="save">
+                  <button class="apply">Apply</button>
+                  <button class="save">
+                    <span
+                      class="iconify"
+                      data-icon="bi:bookmark-check"
+                      style="font-size: 16px"
+                    ></span>
+                    Save
+                  </button>
+                </span>
+              </li>
+              <li class="splide__slide">
+                <span class="buttons">
+                  <span
+                    class="iconify"
+                    data-icon="teenyicons:edit-1-outline"
+                    style="color: #262262; font-size: 20px"
+                  ></span>
+                  <span
+                    class="iconify"
+                    data-icon="fluent:delete-16-regular"
+                    style="color: #f37821; font-size: 20px"
+                  ></span>
+                </span>
+            
+                <span class="info">
+                  <p class="title">IT Training – Centre Manager</p>
+                  <p class="name">CDDtech Academy</p>
+                  <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
+                  <p class="function">Job Function: Engineering & Technology</p>
+                </span>
+            
+                <span id="save">
+                  <button class="apply">Apply</button>
+                  <button class="save">
+                    <span
+                      class="iconify"
+                      data-icon="bi:bookmark-check"
+                      style="font-size: 16px"
+                    ></span>
+                    Save
+                  </button>
+                </span>
+              </li>
+              <li class="splide__slide">
+                <span class="buttons">
+                  <span
+                    class="iconify"
+                    data-icon="teenyicons:edit-1-outline"
+                    style="color: #262262; font-size: 20px"
+                  ></span>
+                  <span
+                    class="iconify"
+                    data-icon="fluent:delete-16-regular"
+                    style="color: #f37821; font-size: 20px"
+                  ></span>
+                </span>
+            
+                <span class="info">
+                  <p class="title">IT Training – Centre Manager</p>
+                  <p class="name">CDDtech Academy</p>
+                  <p class="location">Lagos | Full Time | NGN 150,000 - 250,000</p>
+                  <p class="function">Job Function: Engineering & Technology</p>
+                </span>
+            
+                <span id="save">
+                  <button class="apply">Apply</button>
+                  <button class="save">
+                    <span
+                      class="iconify"
+                      data-icon="bi:bookmark-check"
+                      style="font-size: 16px"
+                    ></span>
+                    Save
+                  </button>
+                </span>
+              </li>
+            </ul>
+          </div>
+       </div>
+          
       </div>
     </main>
 
@@ -389,7 +365,23 @@
     <script src="https://kit.fontawesome.com/123793bde3.js" crossorigin="anonymous"></script>
 
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+    <script>
+      new Splide( '.splide',{
+        perPage: 3,
+        pagination:false,
+        type:'rewind',
+        autoWidth: true,
+        padding:'1.25rem',
+        breakpoints:{
+          640:{
+            perPage:2,
+          },
+          345:{
+            perPage:1,
+          }
+        }
+      } ).mount();
+    </script>
   </body>
 </html>

@@ -14,7 +14,7 @@ body {
 #navbar {
   position: absolute;
   background: #262262;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,7 +48,7 @@ body {
 }
 #avatar img {
   height: auto;
-  width: 50px;
+  width: 40px;
 }
 #username {
   padding: 0;
@@ -68,12 +68,10 @@ body {
   cursor: pointer;
 }
 #logo img {
-  height: 3.375rem;
+  height: 40px;
 }
 
-#hamburger {
-  color: #ffffff;
-}
+
 #desktop {
   display: none;
 }
@@ -96,10 +94,10 @@ body {
 
 .hamburger div {
   position: relative;
-  top: -6px;
+  top: -0.8em;
   right: 5%;
-  width: 2.6em;
-  height: 6px;
+  width: 2em;
+  height: 4px;
   border-radius: 3px;
   background: #f37821;
   margin-top: 8px;
@@ -159,7 +157,7 @@ Animations
 }
 #toggle:checked + .hamburger .meat {
   transform: rotate(45deg);
-  margin-top: -6px;
+  margin-top: -4px;
 }
 
 #toggle:checked + .hamburger + .nav {
@@ -180,16 +178,23 @@ Animations
 }
 #toggle:checked + .hamburger .meat {
   transform: rotate(45deg);
-  margin-top: -6px;
+  margin-top: -4px;
 }
 
 #toggle:checked + .hamburger + .nav {
   top: 0;
   transform: scale(1);
 }
-.down {
-  color: white;
-  display: none;
+
+.down, .dropdown {
+  transition: all .5s ease;
+}
+.rotate {
+  transition: all .5s ease;
+  transform: rotate(180deg);
+}
+.rotate-fast {
+  transform: rotate(180deg);
 }
 .caret {
   display: none;
@@ -206,7 +211,7 @@ Animations
   width: 100%;
   height: 40px;
   left: 0px;
-  top: 133px;
+  top: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -215,7 +220,7 @@ Animations
 }
 #dropDownCont {
   position: fixed;
-  top: 80px;
+  top: 60px;
   right: 0px;
   z-index: 100;
   background: #262262;
@@ -287,7 +292,6 @@ Animations
 }
 
 main {
-  padding: 20px;
   overflow-x: hidden;
   padding-bottom: 400px;
 }
@@ -295,6 +299,7 @@ main {
 .iconify {
   cursor: pointer;
 }
+
 #name {
   position: relative;
   top: 180px;
@@ -311,11 +316,12 @@ main {
   top: 160px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding: 0px 2%;
+  padding: 0px 5%;
+  gap: 20px;
 
   height: fit-content;
 }
+
 
 #container .title {
   display: flex;
@@ -329,11 +335,13 @@ main {
   color: #262262;
   position: relative;
   top: 50px;
+  width: 98%;
 }
 #jobtitle {
   position: absolute;
   left: 0;
   top: 50px;
+  width: 98%;
 }
 #jobtitle select {
   display: flex;
@@ -370,6 +378,7 @@ main {
 #location {
   position: absolute;
   left: 0;
+  width: 98%;
 }
 #location select {
   display: flex;
@@ -455,7 +464,7 @@ main {
   color: #ffffff;
   border: transparent;
   position: relative;
-  top: 40px;
+  top: 60px;
 }
 #uploadedJobs {
   font-family: "Poppins";
@@ -468,20 +477,30 @@ main {
   top: 260px;
   left: 2vw;
 }
-#jobsContainer {
+.splide {
+  visibility: visible;
+  position: absolute;
+  top: 280px;
+  left: 0;
+  padding: 20px 0px;
+  background: rgba(243, 120, 33, 0.4);
+  width: 100vw;
+}
+.splide__track {
+  visibility: visible;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 50px;
-  padding: 20px;
-  background: rgba(243, 120, 33, 0.4);
   position: relative;
-  top: 280px;
-  width: 600%;
-  left: 2vw;
+  left: 0;
+ }
+.splide__list {
+  gap: 20px;
 }
 
-#card {
+.splide__slide {
+  visibility: visible;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -489,21 +508,21 @@ main {
   gap: 25px;
   background: #fafafa;
 }
-#card .buttons {
+.splide__slide .buttons {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 0px;
   gap: 24px;
 }
-#card .info {
+.splide__slide .info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   gap: 10px;
 }
-#card .info .title {
+.splide__slide .info .title {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -511,7 +530,7 @@ main {
   line-height: 150%;
   color: #262262;
 }
-#card .info .name {
+.splide__slide .info .name {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -519,7 +538,7 @@ main {
   line-height: 160%;
   color: rgba(38, 34, 98, 0.8);
 }
-#card .info .location {
+.splide__slide .info .location {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -527,7 +546,7 @@ main {
   line-height: 160%;
   color: rgba(38, 34, 98, 0.6);
 }
-#card .info .function {
+.splide__slide .info .function {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -643,10 +662,7 @@ main {
     font-size: 16px;
     line-height: 140%;
   }
-  #avatar img {
-    max-width: auto;
-    height: 100%;
-  }
+  
 
   #name {
     top: 180px;
@@ -692,8 +708,11 @@ main {
   #navcta {
     display: none;
   }
-  #brandname {
-    left: 90px;
+  #logo img {
+    height: 45px;
+  }
+  .nav {
+    display: none;
   }
 
   #desktop {
@@ -744,15 +763,11 @@ main {
     justify-content: center;
     align-items: center;
   }
-  #username {
-    height: auto;
-  }
-  #userdetails .notification {
-    display: flex;
-  }
-  #hamburger {
-    display: none;
-  }
+  
+ #title {
+  top: 120px;
+ }
+ 
   .hamburger {
     display: none;
   }
@@ -761,10 +776,10 @@ main {
     display: flex;
   }
   #container {
-    width: 50%;
+    width: 70%;
   }
-  #uploadedJobs {
-  }
+ 
+  
 
   #jobsContainer {
     flex-direction: row;
